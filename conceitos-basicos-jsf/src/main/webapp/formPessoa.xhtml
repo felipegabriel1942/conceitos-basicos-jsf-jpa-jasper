@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Cadastro de Pessoas</title>
+
+</h:head>
+<h:body>
+<!-- O exemplo a seguir mostra um formulario que renderiza elementos visuais apenas quando opções são selecionadas
+	utilizando o atributo RENDERED -->
+	<h:form>
+		<h:messages />
+		<h:panelGroup rendered="#{controlePessoa.opcaoSelecionada == false}">
+			Selecione o tipo de pessoa
+			<h:selectOneRadio value="#{controlePessoa.pessoaFisica}"
+				layout="lineDirection" onchange="submit()"
+				valueChangeListener="#{controlePessoa.tipoChange}">
+				<f:selectItem itemLabel="Pessoa Física" itemValue="true" />
+				<f:selectItem itemLabel="Pessoa Jurídica" itemValue="false" />
+			</h:selectOneRadio>
+		</h:panelGroup>
+
+		<h:panelGroup rendered="#{controlePessoa.opcaoSelecionada == true}">
+			<h:panelGrid columns="2">
+				<h:outputLabel value="ID" />
+				<h:inputText value="#{controlePessoa.id}" />
+				<h:outputLabel value="Nome:"
+					rendered="#{controlePessoa.pessoaFisica == true}" />
+				<h:outputLabel value="Razão Social:"
+					rendered="#{controlePessoa.pessoaFisica == false}" />
+				<h:inputText value="#{controlePessoa.nome}" size="40" />
+
+				<h:outputLabel value="CPF:"
+					rendered="#{controlePessoa.pessoaFisica == true}" />
+				<h:inputText value="#{controlePessoa.cpf}"
+					rendered="#{controlePessoa.pessoaFisica == true}" size="11" />
+				<h:outputLabel value="CNPJ:"
+					rendered="#{controlePessoa.pessoaFisica == false}" />
+				<h:inputText value="#{controlePessoa.cnpj}"
+					rendered="#{controlePessoa.pessoaFisica == false}" size="14" />
+			</h:panelGrid>
+			<h:commandButton action="#{controlePessoa.exibirDados()}"
+				value="Enviar" />
+		</h:panelGroup>
+
+	</h:form>
+
+</h:body>
+</html>
