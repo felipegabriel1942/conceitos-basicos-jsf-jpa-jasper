@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title></title>
+
+</h:head>
+<h:body>
+<!-- Exemplo de página com parametros passados via GET -->
+	<h:form>
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Nome: " />
+			<h:inputText value="#{controleBonus.nome}" />
+			
+			<h:outputLabel value="Salário: " />
+			<h:inputText value="#{controleBonus.salario}" />
+			
+			<h:outputLabel value="Cargo: " />
+			<h:selectOneMenu value="#{controleBonus.cargo}">
+				<f:selectItem itemLabel="Gerente" itemValue="0"/>
+				<f:selectItem itemLabel="Vendedor" itemValue="1"/>
+				<f:selectItem itemLabel="Empacotador" itemValue="2"/>
+			</h:selectOneMenu>
+			
+		</h:panelGrid>
+		<h:commandButton action="#{controleBonus.dadosBonus()}" value="Calcular" />
+	</h:form>
+
+	
+</h:body>
+</html>
