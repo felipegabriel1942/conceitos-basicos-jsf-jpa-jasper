@@ -1,0 +1,27 @@
+.tituloTabela {
+	font-style: italic;
+	color: red;
+}
+
+.tabela {
+	border: thin solid black;
+	background: lavender;
+}
+
+.tabelaCabecalho {
+	text-align: center;
+	font-style: italic;
+	color: snow;
+	background: teal;
+}
+
+.tabelaRodape {
+	text-align: center;
+	color: snow;
+	background: teal;
+}
+
+.colunaCabecalho {
+	font-style: italic;
+	text-align: left;
+}
