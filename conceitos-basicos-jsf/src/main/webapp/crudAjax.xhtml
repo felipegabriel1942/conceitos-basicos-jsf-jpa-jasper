@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="/templates/template.xhtml">
+	<ui:define name="tituloJanela">Manutenção de pessoas com ajax</ui:define>
+	<ui:define name="conteudo">
+		<h:form id="form">
+			<h:messages />
+
+			<!-- Cada panelGroup é independente e  o ajax controla qual panelGroup deve 
+			 ser exibido em determinado momento -->
+			<h:panelGroup rendered="#{!controleCRUDAjax.editando}">
+				<h:dataTable value="#{controleCRUDAjax.lista}" var="obj" id="lista"
+					frame="box" rules="all" cellpadding="3">
+					<f:facet name="header">
+						<h:commandButton action="#{controleCRUDAjax.novo()}" value="Novo">
+							<f:ajax execute="@form" render="@form" />
+						</h:commandButton>
+					</f:facet>
+					<h:column>
+						<f:facet name="header">ID</f:facet>
+						<h:outputText value="#{obj.id}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Nome</f:facet>
+						<h:outputText value="#{obj.nome}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Email</f:facet>
+						<h:outputText value="#{obj.email}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Alterar</f:facet>
+						<h:commandLink value="Alterar"
+							action="#{controleCRUDAjax.alterar(obj)}">
+							<f:ajax render="@form" execute="@form" />
+						</h:commandLink>
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Excluir</f:facet>
+						<h:commandLink value="Excluir"
+							action="#{controleCRUDAjax.excluir(obj)}"
+							onclick="if (!confirm('Confirme a exclusão da pessoa?')) return false">
+							<f:ajax execute="@form" render="@form" />
+						</h:commandLink>
+					</h:column>
+
+
+				</h:dataTable>
+			</h:panelGroup>
+
+			<h:panelGroup rendered="#{controleCRUDAjax.editando}">
+				<h:panelGrid columns="2">
+					<f:facet name="header">Edição de pessoas</f:facet>
+					<f:facet name="footer">
+						<div align="center">
+							<h:commandButton action="#{controleCRUDAjax.cancelar()}"
+								value="Cancelar" imediate="true">
+								<f:ajax render="@form" execute="@form" />
+							</h:commandButton>
+						
+							<h:commandButton action="#{controleCRUDAjax.salvar()}"
+								value="Salvar">
+								<f:ajax render="@form" execute="@form" />
+							</h:commandButton>
+						</div>
+					</f:facet>
+
+					<h:outputLabel value="ID" />
+					<h:inputText value="#{controleCRUDAjax.objeto.id}" readonly="true" />
+
+					<h:outputLabel value="Nome" />
+					<h:inputText value="#{controleCRUDAjax.objeto.nome}" maxlength="40"
+						size="40" />
+
+					<h:outputLabel value="Email" />
+					<h:inputText value="#{controleCRUDAjax.objeto.email}"
+						maxlength="40" size="40" />
+				</h:panelGrid>
+
+			</h:panelGroup>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

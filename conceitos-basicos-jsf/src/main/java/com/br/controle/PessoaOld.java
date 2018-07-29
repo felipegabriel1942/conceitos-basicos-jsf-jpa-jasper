@@ -2,7 +2,7 @@ package com.br.controle;
 
 import java.io.Serializable;
 
-public class Pessoa implements Serializable {
+public class PessoaOld implements Serializable {
 
 	private static final long serialVersionUID = -7319718256496768246L;
 
@@ -10,11 +10,11 @@ public class Pessoa implements Serializable {
 	private String nome;
 	private String telefone;
 
-	public Pessoa() {
+	public PessoaOld() {
 
 	}
 	
-	public Pessoa(Integer id, String nome, String telefone) {
+	public PessoaOld(Integer id, String nome, String telefone) {
 		this.id = id;
 		this.nome = nome;
 		this.telefone = telefone;

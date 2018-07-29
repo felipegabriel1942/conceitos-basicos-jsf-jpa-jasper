@@ -20,6 +20,11 @@ public class ControlePrincipal implements Serializable {
 	
 	private String mensagem;
 	
+	
+	public String home() {
+		return "/indexTemplate";
+	}
+	
 	//Ao instanciar a classe o atributo mensagem recebe o parametro passado no contrutor
 	public ControlePrincipal() {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss:S");

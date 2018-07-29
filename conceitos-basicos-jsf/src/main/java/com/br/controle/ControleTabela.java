@@ -14,29 +14,29 @@ public class ControleTabela implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	
-	private List<Pessoa> lista;
+	private List<PessoaOld> lista;
 	
 	//Inicia a classe com a lista inicializada
 	public ControleTabela() {
-		lista = new ArrayList<Pessoa>();
-		lista.add(new Pessoa(1,"Joao","(99)9999-99990"));
-		lista.add(new Pessoa(2,"Maria","(99)9999-99990"));
-		lista.add(new Pessoa(3,"Carlos","(99)9999-99990"));
-		lista.add(new Pessoa(4,"Maris","(99)9999-99990"));
-		lista.add(new Pessoa(5,"Felipe","(99)9999-99990"));
-		lista.add(new Pessoa(6,"José","(99)9999-99990"));
-		lista.add(new Pessoa(7,"Rafael","(99)9999-99990"));
-		lista.add(new Pessoa(8,"Marcos","(99)9999-99990"));
-		lista.add(new Pessoa(9,"Eduardo","(99)9999-99990"));
-		lista.add(new Pessoa(10,"Madalena","(99)9999-99990"));
+		lista = new ArrayList<PessoaOld>();
+		lista.add(new PessoaOld(1,"Joao","(99)9999-99990"));
+		lista.add(new PessoaOld(2,"Maria","(99)9999-99990"));
+		lista.add(new PessoaOld(3,"Carlos","(99)9999-99990"));
+		lista.add(new PessoaOld(4,"Maris","(99)9999-99990"));
+		lista.add(new PessoaOld(5,"Felipe","(99)9999-99990"));
+		lista.add(new PessoaOld(6,"José","(99)9999-99990"));
+		lista.add(new PessoaOld(7,"Rafael","(99)9999-99990"));
+		lista.add(new PessoaOld(8,"Marcos","(99)9999-99990"));
+		lista.add(new PessoaOld(9,"Eduardo","(99)9999-99990"));
+		lista.add(new PessoaOld(10,"Madalena","(99)9999-99990"));
 	}
 	
-	public List<Pessoa> getLista() {
+	public List<PessoaOld> getLista() {
 		return lista;
 	}
 
 
-	public void setLista(List<Pessoa> lista) {
+	public void setLista(List<PessoaOld> lista) {
 		this.lista = lista;
 	}
 	
